@@ -6,8 +6,8 @@ This is a personal tool used to automate the process of checking for new KiTEs e
 
 ### Readme to do
 - [ ] Explanation of KiTE
-      - [ ] Purpose/how it is used at TCS
-      - [ ] Purpose of this tool
-	  - [ ] How it improves productivity
+     - [ ] Purpose/how it is used at TCS
+     - [ ] Purpose of this tool
+	 - [ ] How it improves productivity
 - [ ] How to run this tool
 - [ ] How to use this tool
