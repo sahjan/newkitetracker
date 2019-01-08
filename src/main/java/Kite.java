@@ -7,7 +7,7 @@ import com.opencsv.bean.CsvBindByPosition;
  */
 public class Kite {
 
-    @CsvBindByPosition(position = 0, required = true)
+    //@CsvBindByPosition(position = 0, required = true)
     private String number;
 
     @CsvBindByName(column = "Title")
