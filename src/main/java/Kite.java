@@ -10,8 +10,16 @@ public class Kite {
     @CsvBindByPosition(position = 0, required = true)
     private String number;
 
-    @CsvBindByName
+    @CsvBindByName(column = "Title")
     private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getNumber() {
         return number;

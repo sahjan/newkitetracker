@@ -36,8 +36,14 @@ public class Parser {
     public List<QueueKite> parseQueueKites(String path) {
         try {
             queueKites = new CsvToBeanBuilder(new FileReader(path))
-                    .withType(Kite.class).build().parse();
-            queueSuperKites = parseSuperKites(path);
+                    .withType(QueueKite.class).build().parse();
+            queueSuperKites = parseSuperKites(path); //this has the number + title field. need to set in the subclass queuekite list.
+
+            //set their kite title+numbers from the super kite list
+            for (int i = 0; i < queueKites.size(); i++) {
+                queueKites.get(i).setTitle(queueSuperKites.get(i).getTitle());
+                queueKites.get(i).setNumber(queueSuperKites.get(i).getNumber());
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -52,10 +58,14 @@ public class Parser {
     public List<TrackerKite> parseTrackerKites(String path) {
         try {
             trackerKites = new CsvToBeanBuilder(new FileReader(path))
-                    .withType(Kite.class).build().parse();
-            trackerSuperKites = parseSuperKites(path);
+                    .withType(TrackerKite.class).build().parse();
+            trackerSuperKites = parseSuperKites(path); //this has the number + title field. need to set in the subclass trackerkite list.
 
-
+            //set their kite title+numbers from the super kite list
+            for (int i = 0; i < trackerKites.size(); i++) {
+                trackerKites.get(i).setTitle(trackerSuperKites.get(i).getTitle());
+                trackerKites.get(i).setNumber(trackerSuperKites.get(i).getNumber());
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
