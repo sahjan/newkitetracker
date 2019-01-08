@@ -11,22 +11,56 @@ import java.util.List;
  */
 public class Parser {
 
-    private List<Kite> kites;
+    private List<QueueKite> queueKites;
+    private List<TrackerKite> trackerKites;
+    private List<Kite> queueSuperKites;
+    private List<Kite> trackerSuperKites;
 
-    /**
-     * Generate Kite beans from csv file
-     * @return a List of Kite objects
-     */
-    public List<Kite> parseKites(String path) {
+    private List<Kite> superKites;
 
+    public List<Kite> parseSuperKites(String path) {
         try {
-            kites = new CsvToBeanBuilder(new FileReader(path))
+            superKites = new CsvToBeanBuilder(new FileReader(path))
                     .withType(Kite.class).build().parse();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return kites;
+        return superKites;
+    }
+
+    /**
+     * Generate Queue Kite beans from csv file
+     * @return a List of QueueKite objects
+     */
+    public List<QueueKite> parseQueueKites(String path) {
+        try {
+            queueKites = new CsvToBeanBuilder(new FileReader(path))
+                    .withType(Kite.class).build().parse();
+            queueSuperKites = parseSuperKites(path);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return queueKites;
+    }
+
+    /**
+     * Generate Tracker Kite beans from csv file
+     * @return a List of TrackerKite objects
+     */
+    public List<TrackerKite> parseTrackerKites(String path) {
+        try {
+            trackerKites = new CsvToBeanBuilder(new FileReader(path))
+                    .withType(Kite.class).build().parse();
+            trackerSuperKites = parseSuperKites(path);
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return trackerKites;
     }
 
 }

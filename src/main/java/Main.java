@@ -8,12 +8,13 @@ public class Main {
 
         //parse the csv files
         //these files are confidential and as such are not shared
-        List<Kite> changeTrackerKites = parser.parseKites("src\\main\\resources\\changequeue07-11.csv");
-        List<Kite> changeQueueKites = parser.parseKites("src\\main\\resources\\changetracker07-11.csv");
+        List<QueueKite> changeTrackerKites = parser.parseQueueKites("src\\main\\resources\\changequeue07-11.csv");
+        List<TrackerKite> changeQueueKites = parser.parseTrackerKites("src\\main\\resources\\changetracker07-11.csv");
 
-        List<Kite> newKites = kiteChecker.checkForNewKites(changeTrackerKites, changeQueueKites);
+//        List<Kite> newKites = kiteChecker.checkForNewKites(changeQueueKites, changeTrackerKites);
 
-        newKites.forEach(kite -> System.out.println(kite.getNumber()));
+//        newKites.forEach(kite -> System.out.println(kite.getNumber()));
+        changeQueueKites.forEach(kite -> System.out.println(kite.getNumber()));
     }
 
 }

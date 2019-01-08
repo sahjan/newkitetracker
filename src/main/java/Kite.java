@@ -1,3 +1,4 @@
+import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 
 /***
@@ -6,8 +7,11 @@ import com.opencsv.bean.CsvBindByPosition;
  */
 public class Kite {
 
-    @CsvBindByPosition(position = 0)
+    @CsvBindByPosition(position = 0, required = true)
     private String number;
+
+    @CsvBindByName
+    private String title;
 
     public String getNumber() {
         return number;
