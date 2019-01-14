@@ -42,7 +42,7 @@ public class Parser {
             //set their kite title+numbers from the super kite list
             for (int i = 0; i < queueKites.size(); i++) {
                 queueKites.get(i).setTitle(queueSuperKites.get(i).getTitle());
-                queueKites.get(i).setNumber(queueSuperKites.get(i).getNumber());
+                queueKites.get(i).setNumberString(queueSuperKites.get(i).getNumber().values().toArray(new String[1])[0]);
             }
 
         } catch (FileNotFoundException e) {
@@ -64,7 +64,7 @@ public class Parser {
             //set their kite title+numbers from the super kite list
             for (int i = 0; i < trackerKites.size(); i++) {
                 trackerKites.get(i).setTitle(trackerSuperKites.get(i).getTitle());
-                trackerKites.get(i).setNumber(trackerSuperKites.get(i).getNumber());
+                trackerKites.get(i).setNumberString(trackerSuperKites.get(i).getNumber().values().toArray(new String[1])[0]);
             }
 
         } catch (FileNotFoundException e) {

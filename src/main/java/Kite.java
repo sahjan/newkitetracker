@@ -1,5 +1,7 @@
+import com.opencsv.bean.CsvBindAndJoinByName;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
+import org.apache.commons.collections4.MultiValuedMap;
 
 /***
  * POJO for Kite bean created
@@ -7,11 +9,13 @@ import com.opencsv.bean.CsvBindByPosition;
  */
 public class Kite {
 
-    //@CsvBindByPosition(position = 0, required = true)
-    private String number;
+    @CsvBindAndJoinByName(column = "(Number|Change Num)", elementType = String.class)
+    private MultiValuedMap<String, String> number;
 
     @CsvBindByName(column = "Title")
     private String title;
+
+    private String numberString;
 
     public String getTitle() {
         return title;
@@ -21,11 +25,20 @@ public class Kite {
         this.title = title;
     }
 
-    public String getNumber() {
+    public MultiValuedMap<String, String> getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(MultiValuedMap<String, String> number) {
         this.number = number;
     }
+
+    public String getNumberString() {
+        return numberString;
+    }
+
+    public void setNumberString(String numberString) {
+        this.numberString = numberString;
+    }
+
 }

@@ -22,4 +22,5 @@ public class QueueKite extends Kite {
     public void setAssigneeName(String assigneeName) {
         this.assigneeName = assigneeName;
     }
+
 }
