@@ -1,5 +1,5 @@
 # New KiTE Tracker
-This is a personal tool used to automate the process of checking for new KiTEs every morning.
+This is a personal tool used to automate the process of checking for new KiTEs every morning, in Peregrine Service Center.
 
 ## To do
 - [x] Initial commit
